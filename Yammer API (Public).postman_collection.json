@@ -1,0 +1,987 @@
+{
+	"info": {
+		"_postman_id": "4470c326-be6d-43ee-b6da-35269be29317",
+		"name": "Yammer API (Public)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get My Feed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/my_feed.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"my_feed.json"
+					]
+				},
+				"description": "The user’s feed, based on the selection they have made between “Following” and “Top” conversations.\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get top conversations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/algo.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"algo.json"
+					]
+				},
+				"description": "The algorithmic feed for the user that corresponds to “Top” conversations. The Top conversations feed is the feed currently shown in the Yammer mobile apps."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Messages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages.json"
+					]
+				},
+				"description": "All public messages in the user’s (whose access token is being used to make the API call, henceforth referred to as current user) Yammer network. Corresponds to “All” conversations in the Yammer web interface."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Following",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/following.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"following.json"
+					]
+				},
+				"description": "The “Following” feed which is conversations involving people and topics that the user is following.\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/sent.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"sent.json"
+					]
+				},
+				"description": "All messages sent by the user. Alias for /api/v1/messages/from_user/logged-in_user_id.format."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Private Messages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/private.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"private.json"
+					]
+				},
+				"description": "Private messages received by the user."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Received Messages ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/received.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"received.json"
+					]
+				},
+				"description": "All messages received by the user."
+			},
+			"response": []
+		},
+		{
+			"name": "Get messages in a thread",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/in_thread/:thread_id.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"in_thread",
+						":thread_id.json"
+					],
+					"variable": [
+						{
+							"key": "thread_id.json",
+							"value": "313047325671424"
+						}
+					]
+				},
+				"description": "All messages in a specified thread."
+			},
+			"response": []
+		},
+		{
+			"name": "Get messages in a Group",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/in_group/:group_id.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"in_group",
+						":group_id.json"
+					],
+					"variable": [
+						{
+							"key": "group_id.json",
+							"value": "3999293440"
+						}
+					]
+				},
+				"description": "All messages in a specified group"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Messages by Topic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/about_topic/:Topic_ID.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"about_topic",
+						":Topic_ID.json"
+					],
+					"variable": [
+						{
+							"key": "Topic_ID.json",
+							"value": "12338585600"
+						}
+					]
+				},
+				"description": "Returns messages relating to the topic specified by the numeric topic ID."
+			},
+			"response": []
+		},
+		{
+			"name": "Post Messages",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "body",
+							"value": "Posting a message from postman",
+							"type": "text"
+						},
+						{
+							"key": "group_id",
+							"value": "3999293440",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{YamURI}}/messages.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like message",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/liked_by/current.json?message_id=1672235680989184",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"liked_by",
+						"current.json"
+					],
+					"query": [
+						{
+							"key": "message_id",
+							"value": "1672235680989184"
+						}
+					]
+				},
+				"description": "Marks the specified message as liked by the current user."
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Like",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/liked_by/current.json?message_id=313047325671424",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						"liked_by",
+						"current.json"
+					],
+					"query": [
+						{
+							"key": "message_id",
+							"value": "313047325671424"
+						}
+					]
+				},
+				"description": "Removes the like mark from the specified message."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Message",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/messages/:message_id",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"messages",
+						":message_id"
+					],
+					"variable": [
+						{
+							"key": "message_id",
+							"value": "333374755282944"
+						}
+					]
+				},
+				"description": "Remove a message. To remove a message, you must either (1) have posted the message yourself (2) be an administrator of the group the message was posted to or (3) be an admin of the network the message is in."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete uploaded file",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/uploaded_files/:file_id",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"uploaded_files",
+						":file_id"
+					],
+					"variable": [
+						{
+							"key": "file_id",
+							"value": "175156035584"
+						}
+					]
+				},
+				"description": "Delete a pending attachment owned by the current user."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Topic users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/topics/:Topic_ID.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"topics",
+						":Topic_ID.json"
+					],
+					"variable": [
+						{
+							"key": "Topic_ID.json",
+							"value": "12338585600"
+						}
+					]
+				},
+				"description": "The users that have used the topic specified by the numeric string ID.\n\nTopics can be added to a thread either by a user posting a message with a hashtag or by adding the topic after the fact (see parameters for manipulating messages above). Topics, along with their ids, can be retrieved using search or autocomplete."
+			},
+			"response": []
+		},
+		{
+			"name": "Join user to group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "group_id",
+							"value": "103998455808",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "1401054601216",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{YamURI}}/group_memberships.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"group_memberships.json"
+					],
+					"query": [
+						{
+							"key": "groupid",
+							"value": "103998455808",
+							"disabled": true
+						},
+						{
+							"key": "userId",
+							"value": "560692469760",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "suryansh@kendra001.onmicrosoft.com",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Join the group specified by the group_id. If neither user_id or email is provided then the user that is currently authenticated will be added to the group."
+			},
+			"response": []
+		},
+		{
+			"name": "Leave a group",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/group_memberships.json?group_id=103998455808&user_id=1401054601216",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"group_memberships.json"
+					],
+					"query": [
+						{
+							"key": "group_id",
+							"value": "103998455808"
+						},
+						{
+							"key": "user_id",
+							"value": "1401054601216"
+						},
+						{
+							"key": "userId",
+							"value": "1401054601216",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/users.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"users.json"
+					]
+				},
+				"description": "Retrieve users in the current user’s Yammer network. Supports page, sort_by, reverse, and letter parameters."
+			},
+			"response": []
+		},
+		{
+			"name": "Get current user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/users/current.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"users",
+						"current.json"
+					]
+				},
+				"description": "Get details about current user"
+			},
+			"response": []
+		},
+		{
+			"name": "View user details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/users/:User_Id.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"users",
+						":User_Id.json"
+					],
+					"variable": [
+						{
+							"key": "User_Id.json",
+							"value": "1700952782"
+						}
+					]
+				},
+				"description": "View data about a user"
+			},
+			"response": []
+		},
+		{
+			"name": "Search user by email address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/users/by_email.json?email=sameer@dishydesi.com",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"users",
+						"by_email.json"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "sameer@dishydesi.com"
+						}
+					]
+				},
+				"description": "Search by email address."
+			},
+			"response": []
+		},
+		{
+			"name": "Users in a group",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/users/in_group/:group_Id.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"users",
+						"in_group",
+						":group_Id.json"
+					],
+					"variable": [
+						{
+							"key": "group_Id.json",
+							"value": "3999293440"
+						}
+					]
+				},
+				"description": "Users in a group. Supports the page parameter."
+			},
+			"response": []
+		},
+		{
+			"name": "Users liked message",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/users/liked_message/:Message_id.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"users",
+						"liked_message",
+						":Message_id.json"
+					],
+					"variable": [
+						{
+							"key": "Message_id.json",
+							"value": "324596046503936"
+						}
+					]
+				},
+				"description": "Users who have liked a message. Supports the page parameter."
+			},
+			"response": []
+		},
+		{
+			"name": "Create new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "sameerjr@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "full_name",
+							"value": "Sammu",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{YamURI}}/users.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"users.json"
+					]
+				},
+				"description": "Create a new user. Current user should be a verified admin in a paid Yammer network to perform this action. In a paid yammer network that supports guest users, users with external email domains can be added. Not all Yammer networks support adding guests."
+			},
+			"response": []
+		},
+		{
+			"name": "Update user information",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "job_title",
+							"value": "Administrative Assistant",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{YamURI}}/users/:user_id.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"users",
+						":user_id.json"
+					],
+					"variable": [
+						{
+							"key": "user_id.json",
+							"value": "1700952782"
+						}
+					]
+				},
+				"description": "Update information about a user. The target user should be the current user or a verified admin in a paid Yammer network."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/users/:user_id.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"users",
+						":user_id.json"
+					],
+					"variable": [
+						{
+							"key": "user_id.json",
+							"value": "1700952837"
+						}
+					]
+				},
+				"description": "Suspend or delete a user. Current user should be an admin or a verified admin in a paid Yammer network to perform this action."
+			},
+			"response": []
+		},
+		{
+			"name": "Pending attachments",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "attachment",
+							"type": "file",
+							"src": "/Users/sam/Desktop/tintin.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{YamURI}}/pending_attachments",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"pending_attachments"
+					]
+				},
+				"description": "Create a new pending attachment."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Notifications",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/streams/notifications.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"streams",
+						"notifications.json"
+					]
+				},
+				"description": "Get the notifications feed for the current user."
+			},
+			"response": []
+		},
+		{
+			"name": "Get suggestions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/suggestions.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"suggestions.json"
+					]
+				},
+				"description": "Show suggested users to follow."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Suggestions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/suggestions/:suggestion_id.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"suggestions",
+						":suggestion_id.json"
+					],
+					"variable": [
+						{
+							"key": "suggestion_id.json",
+							"value": ""
+						}
+					]
+				},
+				"description": "Decline a suggested user."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Subscriptions to user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}subscriptions/to_user/:id.json",
+					"host": [
+						"{{YamURI}}subscriptions"
+					],
+					"path": [
+						"to_user",
+						":id.json"
+					],
+					"variable": [
+						{
+							"key": "id.json",
+							"value": ""
+						}
+					]
+				},
+				"description": "Check to see if you are subscribed to the user with the given id. Returns 404 when you are not following a given user. If you are in a Community that is set to follow everyone all requests will return 404."
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "The example below searches for “API”."
+			},
+			"response": []
+		},
+		{
+			"name": "Commnunities in a network",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Community by Id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a community",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{YamURI}}/groups/103970349056.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"groups",
+						"103970349056.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Community",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Demo_Persistent",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{YamURI}}/groups.json",
+					"host": [
+						"{{YamURI}}"
+					],
+					"path": [
+						"groups.json"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "eyJ0eXAiOiJKV1QiLCJub25jZSI6Im5TcUdFcDNET1Yzd2o2NzFMNFg5d01kSlFmd2NKTC15UDJpRzlNd0JoTEEiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyIsImtpZCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyJ9.eyJhdWQiOiJodHRwczovL2FwaS55YW1tZXIuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvODg4ZDBiNTctNjlmMS00ZmI4LTk1N2YtZTFmMGJlZGY2NGRlLyIsImlhdCI6MTY0ODcyNjA4NiwibmJmIjoxNjQ4NzI2MDg2LCJleHAiOjE2NDg3MzE3NzksImFjciI6IjEiLCJhaW8iOiJBU1FBMi84VEFBQUF4U1N3dTB6dGc4ck9GYWJnZUo5MCtWb0ZqVlREaU1abEhhQ2hUSXVLZk1JPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiJhYTQ5MzE1OC00Mjg1LTQyMTgtYmEzMi1lM2I4OGFhNTNiMzQiLCJhcHBpZGFjciI6IjEiLCJpcGFkZHIiOiIxMzYuMjI2LjI1MS4yMSIsIm5hbWUiOiJwZXJzaXN0ZW50X3Rlc3QiLCJvaWQiOiJjNzRmYzI4NC0xY2MyLTRkNmEtOTA0Mi05ZjQ2YmNlMWUwMzYiLCJwdWlkIjoiMTAwMzIwMDFFNzQxNDdDQSIsInJoIjoiMC5BVVVBVnd1TmlQRnB1RS1WZi1Id3Z0OWszZ1VBQUFBQUFQRVB6Z0FBQUFBQUFBQkZBT1UuIiwic2NwIjoidXNlcl9pbXBlcnNvbmF0aW9uIiwic3ViIjoiWTRwR29yNDBUVXNES0hlT2ZFa3pjZmI0b19ULVJKb2hJTnphNHFxRFVtcyIsInRpZCI6Ijg4OGQwYjU3LTY5ZjEtNGZiOC05NTdmLWUxZjBiZWRmNjRkZSIsInVuaXF1ZV9uYW1lIjoicGVyc2lzdGVudF90ZXN0QGtlbmRyYTAwMS5vbm1pY3Jvc29mdC5jb20iLCJ1cG4iOiJwZXJzaXN0ZW50X3Rlc3RAa2VuZHJhMDAxLm9ubWljcm9zb2Z0LmNvbSIsInV0aSI6IjkyLVZfRlBLa0VPcXY1dnc2eEF3QVEiLCJ2ZXIiOiIxLjAifQ.OVC5lIwjF-RSAV-JV6bqMwkt4eEncY2XrZtuG4tYmYezXxqH5Yk2OEm-jpKK9ZrTEr3PRuyneRu_X4XDz5UKeScKgBkHWbk8OA0Z_iRvYJskqH1-SjUZj9VeDOMXbm7-2YEDdibrn5EAcm6nkrzLDb0Zmn4640QGaYYO5Pux-tIt7Ez2DxLjcUczelDyxj7WMEVvN1HjYaTRG52x5kWryLAJxeIIJmmDHd6j_Wtexvix2XeSHZ-QiP_i1SZq8Znh7j1uvKt1WnM1WDzEBfdzQsbyN76L-Shkm4WyVMtdW0-OSAAoo29ZOq5oom6Trgz-HDbJzt-Nj578MvDRQ5LXsg",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "password_credentials",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "Mail_1510",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "persistent_test@kendra001.onmicrosoft.com",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "39O7Q~B6AD82QmSERyHCsG1IBd8TQDuJRIO96",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "aa493158-4285-4218-ba32-e3b88aa53b34",
+				"type": "string"
+			},
+			{
+				"key": "useBrowser",
+				"value": false,
+				"type": "boolean"
+			},
+			{
+				"key": "scope",
+				"value": "https://api.yammer.com/user_impersonation",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://login.microsoftonline.com/organizations/oauth2/v2.0/token",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "https://www.getpostman.com/oauth2/callback",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "AAD Tokens",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "YamURI",
+			"value": "https://www.yammer.com/api/v1"
+		}
+	]
+}
